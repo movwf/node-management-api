@@ -2,7 +2,7 @@ import db from "../configs/db";
 import { serializeArrayToQuery } from "./utils";
 
 export const get_all_tasks = async (req, res) => {
-  const { page, rowCount } = req.body;
+  const { page, rowCount } = req.params;
 
   const taskCount = await db.task.count();
   const allTasks = await db.task.findAll({
@@ -18,7 +18,7 @@ export const get_all_tasks = async (req, res) => {
 };
 
 export const get_active_tasks = async (req, res) => {
-  const { page, rowCount } = req.body;
+  const { page, rowCount } = req.params;
 
   const taskCount = await db.task.count();
   const allTasks = await db.task.findAll({
@@ -39,7 +39,7 @@ export const get_active_tasks = async (req, res) => {
 };
 
 export const get_task_history = async (req, res) => {
-  const { page, rowCount } = req.body;
+  const { page, rowCount } = req.params;
 
   const taskCount = await db.task.count();
   const allTasks = await db.task.findAll({
